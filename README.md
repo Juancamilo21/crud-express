@@ -1,6 +1,6 @@
 # Crud Básico con Express.js, TypeScript, MySQL, TypeORM y POO
 
-El siguiente crud está realizado con una tabla en la base de datos de MySQL que estará gestionada por el ORM <a href="https://typeorm.io/" target="_blank">TypeORM</a>, se ha realizado bajo un control de productos.
+El siguiente crud está realizado con una tabla en la base de datos de MySQL que estará gestionada por el ORM [TypeORM](https://typeorm.io/), se ha realizado bajo un control de productos.
 
 ![imgage-crud](readme-img.png)
 
