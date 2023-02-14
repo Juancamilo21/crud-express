@@ -13,7 +13,7 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 | description | varchar(500) |     |
 | price       | int          |     |
 
-## Despues de haber clonado el proyecto realice lo siguiente:
+## Despues de haber clonado el proyecto diríjase al directorio de la api crud -- cd api-crud -- lo siguiente:
 
 ```bash
 #Instalación
