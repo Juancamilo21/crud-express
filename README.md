@@ -8,10 +8,10 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 
 |             | product      |     |                |
 | ----------- | ------------ | --- | -------------- |
-| id          | int          | Key | auto_increment |
+| id          | int(11)      | Key | auto_increment |
 | name        | varchar(100) |     |
 | description | varchar(500) |     |
-| price       | int          |     |
+| price       | int(11)      |     |
 
 ## Despues de haber clonado el proyecto diríjase al directorio de la api crud desde la terminal: cd api-crud-products, luego realice lo siguiente:
 
