@@ -20,7 +20,7 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 $ npm install
 ```
 
-## Running
+## Ejecución 
 
 ```bash
 #Modo de desarrollo
