@@ -4,7 +4,7 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 
 ![imgage-crud](readme-img.png)
 
-## Table
+## Tabla
 
 |             | product      |     |                |
 | ----------- | ------------ | --- | -------------- |
