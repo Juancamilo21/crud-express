@@ -5,12 +5,13 @@ const form = document.querySelector("form");
 const buttonAdd = document.getElementById("button-add");
 const buttonCancel = document.getElementById("button-cancel");
 const tbody = document.getElementById("data");
+const statusOK = 200;
 let edit = false;
 let idUpdateProduct;
 
 /**
  * Función que carga los datos traidos por el metodo GET a la tabla
- * @param data 
+ * @param data
  */
 const showProducts = (data) => {
   data.forEach((product) => {
@@ -54,11 +55,12 @@ buttonCancel.addEventListener("click", () => {
 const show = async () => {
   const response = await fetch(endopintGET);
   const data = await response.json();
-  if (response.status === 200) {
-    showProducts(data);
-  } else {
-    alert(`Ha ocurrido un error: ${response.status}`);
+  const status = response.status;
+  if (status !== statusOK) {
+    alert(`Ha ocurrido un error: ${status}`);
+    return;
   }
+  showProducts(data);
 };
 
 /**
@@ -73,17 +75,18 @@ const createNewProduct = async (newProduct) => {
     },
     body: JSON.stringify(newProduct),
   });
-  if (response.status === 200) {
-    alert("Se ha registrado con exito");
-    location.reload();
-  } else {
-    alert(`No se pudo registrar, ha ocurrido un error: ${response.status}`);
+  const status = response.status;
+  if (status !== statusOK) {
+    alert(`No se pudo registrar, ha ocurrido un error: ${status}`);
+    return;
   }
+  alert("Se ha registrado con exito");
+  location.reload();
 };
 
 /**
  * Función que se encarga de actualizar un producto metodo PUT
- * @param id 
+ * @param id
  * @param updateProduct
  */
 const updateProduct = async (id, updateProduct) => {
@@ -94,17 +97,18 @@ const updateProduct = async (id, updateProduct) => {
     },
     body: JSON.stringify(updateProduct),
   });
-  if (response.status === 200) {
-    alert("Se ha actualizado con exito");
-    location.reload();
-  } else {
-    alert(`No se pudo eliminar, ha ocurrido un error: ${response.status}`);
+  const status = response.status;
+  if (status !== statusOK) {
+    alert(`No se pudo actualizar, ha ocurrido un error: ${status}`);
+    return;
   }
+  alert("Se ha actualizado con exito");
+  location.reload();
 };
 
 /**
  * Función que se encarga de eliminar un producto metodo DELETE
- * @param id 
+ * @param id
  */
 const deleteProduct = async (id) => {
   const response = await fetch(`${endpointDELETE}/${id}`, {
@@ -113,28 +117,30 @@ const deleteProduct = async (id) => {
       "Content-Type": "application/json",
     },
   });
-  if (response.status === 200) {
-    alert("Se ha eliminado con exito");
-    location.reload();
-  } else {
-    alert("No se pudo eliminar, ha ocurrido un error");
+  const status = response.status;
+  if (status !== statusOK) {
+    alert(`No se pudo eliminar, ha ocurrido un error: ${status}`);
+    return;
   }
+  alert("Se ha eliminado con exito");
+  location.reload();
 };
 
 /**
  * Función que trae un producto por su id por el netodo GET y carga los datos al fotmulario para actualizar
- * @param id 
+ * @param id
  */
 const loadForm = async (id) => {
   const response = await fetch(`${endpointGETId}/${id}`);
   const data = await response.json();
-  if (response.status === 200) {
-    nameProduct.value = data.name;
-    priceProduct.value = data.price;
-    descriptionProduct.value = data.description;
-  } else {
-    alert(`Ha ocurrido un error: ${response.status}`);
+  const status = response.status;
+  if (status !== statusOK) {
+    alert(`Ha ocurrido un error: ${status}`);
+    return;
   }
+  nameProduct.value = data.name;
+  priceProduct.value = data.price;
+  descriptionProduct.value = data.description;
 };
 
 /**
@@ -147,7 +153,8 @@ form.addEventListener("submit", (e) => {
     description: descriptionProduct.value,
     price: Number(priceProduct.value),
   };
-  if (!edit) { // si edit es false se crea un nuevo prducto
+  // si edit es false se crea un nuevo prducto
+  if (!edit) {
     createNewProduct(product);
   } else {
     updateProduct(idUpdateProduct, product);
