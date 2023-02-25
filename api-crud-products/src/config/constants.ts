@@ -1,0 +1,9 @@
+import { ENVIROMENT } from "./enviroment";
+
+export const PORT = ENVIROMENT.PORT || 3000;
+
+export const DB_PORT = ENVIROMENT.DB_PORT;
+export const DB_HOST = ENVIROMENT.DB_HOST;
+export const DB_USERNAME = ENVIROMENT.DB_USERNAME;
+export const DB_PASSWORD = ENVIROMENT.DB_PASSWORD;
+export const DATABASE = ENVIROMENT.DATABASE;

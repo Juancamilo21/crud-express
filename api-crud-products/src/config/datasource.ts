@@ -1,14 +1,20 @@
 import { DataSource } from "typeorm";
-import { ENVIROMENT } from "./enviroment";
 import { ProductEntity } from "../entities/product.entity";
+import {
+  DATABASE,
+  DB_HOST,
+  DB_PASSWORD,
+  DB_PORT,
+  DB_USERNAME,
+} from "./constants";
 
 export const AppDataSource = new DataSource({
   type: "mysql",
-  host: ENVIROMENT.DB_HOST,
-  port: ENVIROMENT.DB_PORT,
-  username: ENVIROMENT.DB_USERNAME,
-  password: ENVIROMENT.DB_PASSWORD,
-  database: ENVIROMENT.DATABASE,
+  host: DB_HOST,
+  port: DB_PORT,
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DATABASE,
   entities: [ProductEntity],
   synchronize: true,
   logging: false,

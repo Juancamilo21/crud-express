@@ -2,13 +2,13 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import "reflect-metadata";
-import { ENVIROMENT } from "./config/enviroment";
 import { AppDataSource } from "./config/datasource";
 import { ProductRoutes } from "./routes/product.routes";
+import { PORT } from "./config/constants";
 
 export class Server {
   public app: express.Application = express();
-  private port: number = ENVIROMENT.PORT || 3000;
+  private port: number = PORT;
 
   constructor() {
     this.app.use(express.json());
