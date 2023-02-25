@@ -13,10 +13,15 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 | description | varchar(500) |     |
 | price       | int(11)      |     |
 
-## Despues de haber clonado el proyecto diríjase al directorio de la api crud desde la terminal: cd api-crud-products, luego realice lo siguiente:
+## Despues de haber clonado el proyecto realice lo siguiente:
 
 ```bash
-#Instalación
+#Acceda al directorio donde se encuentra el servicio
+$ cd api-crud-products
+```
+
+```bash
+#Instalacion de las dependencias
 $ npm install
 ```
 
