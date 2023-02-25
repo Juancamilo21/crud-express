@@ -17,7 +17,7 @@ El siguiente crud está realizado con una tabla en la base de datos de MySQL que
 
 ```bash
 #Acceda al directorio del proyecto
-$ cd crud-espress
+$ cd crud-express
 
 #Acceda al directorio donde se encuentra el servicio
 $ cd api-crud-products
